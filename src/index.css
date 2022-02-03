@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.navtext {
+  color: #4b5563;
+  text-decoration: none;
+}
+
+.active-nav {
+  /* background: #27895d; */
+  color: #27895d;
+  text-decoration: none;
+  background-color: red;
+}
