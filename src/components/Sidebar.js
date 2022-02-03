@@ -32,13 +32,13 @@ const menu = [
                 id: '1sub1',
                 title: 'Add Hotel',
                 icon: <HolidayVillageIcon />,
-                link: "/hotels/add-hotels",
+                link: "/hotels/addHotels",
             },
             {
                 id: '1sub2',
                 title: 'Update Hotel',
                 icon: <HolidayVillageIcon />,
-                link: "/hotels/update-hotels",
+                link: "/hotels/updateHotels",
             }
         ]
     },
@@ -53,13 +53,13 @@ const menu = [
                 id: '2sub1',
                 title: 'Add Booking',
                 icon: <HolidayVillageIcon />,
-                link: "/bookings/add-bookings",
+                link: "/bookings/addBookings",
             },
             {
                 id: '2sub2',
                 title: 'Update Booking',
                 icon: <HolidayVillageIcon />,
-                link: "/bookings/update-bookings",
+                link: "/bookings/updateBookings",
             }
         ]
     },
@@ -73,13 +73,13 @@ const menu = [
                 id: '3sub1',
                 title: 'Add Room',
                 icon: <HolidayVillageIcon />,
-                link: "/rooms/add-room",
+                link: "/rooms/addRoom",
             },
             {
                 id: '3sub2',
                 title: 'Update Room',
                 icon: <HolidayVillageIcon />,
-                link: "/rooms/update-room",
+                link: "/rooms/updateRoom",
             }
         ]
     },
@@ -93,13 +93,13 @@ const menu = [
                 id: '4sub1',
                 title: 'Add Customer',
                 icon: <HolidayVillageIcon />,
-                link: "/customers/add-customer",
+                link: "/customers/addCustomer",
             },
             {
                 id: '4sub2',
                 title: 'Update Customer',
                 icon: <HolidayVillageIcon />,
-                link: "/customers/update-customer",
+                link: "/customers/updateCustomer",
             }
         ]
     },
@@ -237,17 +237,11 @@ export default function Sidebar() {
                 {/* menus  */}
                 <List>
                     {menu?.map(item => <SideBarMenu item={item} />)}
-
-
-
-
-
-
                 </List>
             </Drawer>
             <Box
                 // component="main"
-                sx={{ background: '#F4F4FA', height: '100%', flexGrow: 1, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+                sx={{ background: '#F4F4FA',  height: '100%', flexGrow: 1, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 {/* <Toolbar /> */}
                 <Outlet />
