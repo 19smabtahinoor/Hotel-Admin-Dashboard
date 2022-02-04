@@ -43,23 +43,22 @@ const menu = [
         ]
     },
     {
-        id: 2,
-        title:
-            'Bookings',
-        icon: <BookOnlineIcon />,
-        link: "/bookings",
+        id: 4,
+        title: 'Customers',
+        icon: <GroupIcon />,
+        link: "/customers",
         subMenu: [
             {
-                id: '2sub1',
-                title: 'Add Booking',
+                id: '4sub1',
+                title: 'Add Customer',
                 icon: <HolidayVillageIcon />,
-                link: "/bookings/addBookings",
+                link: "/customers/addCustomer",
             },
             {
-                id: '2sub2',
-                title: 'Update Booking',
+                id: '4sub2',
+                title: 'Update Customer',
                 icon: <HolidayVillageIcon />,
-                link: "/bookings/updateBookings",
+                link: "/customers/updateCustomer",
             }
         ]
     },
@@ -84,22 +83,23 @@ const menu = [
         ]
     },
     {
-        id: 4,
-        title: 'Customers',
-        icon: <GroupIcon />,
-        link: "/customers",
+        id: 2,
+        title:
+            'Bookings',
+        icon: <BookOnlineIcon />,
+        link: "/bookings",
         subMenu: [
             {
-                id: '4sub1',
-                title: 'Add Customer',
+                id: '2sub1',
+                title: 'Add Booking',
                 icon: <HolidayVillageIcon />,
-                link: "/customers/addCustomer",
+                link: "/bookings/addBookings",
             },
             {
-                id: '4sub2',
-                title: 'Update Customer',
+                id: '2sub2',
+                title: 'Update Booking',
                 icon: <HolidayVillageIcon />,
-                link: "/customers/updateCustomer",
+                link: "/bookings/updateBookings",
             }
         ]
     },
