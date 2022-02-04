@@ -12,7 +12,7 @@ function PageHeading({text}) {
                 justifyContent: 'space-between',
                 flexDirection: 'row'
             }}>
-                <h1 style={{ fontSize: '30px' }}>{text}</h1>
+                <h1 style={{ fontSize: '30px',color:'var(--primary)' }}>{text}</h1>
                 <BreadCrumb />
             </Box>
         </>
