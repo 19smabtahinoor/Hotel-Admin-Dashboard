@@ -12,6 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import * as React from 'react';
 
 const columns = [
+    { id: 'no', label: 'No.', minWidth: 50 },
     { id: 'name', label: 'Name', minWidth: 150 },
     { id: 'code', label: 'Email', minWidth: 150 },
     { id: 'address', label: 'Address', minWidth: 150 },
@@ -26,6 +27,7 @@ const columns = [
 const customers = [
     {
         id: 1,
+        no: 1,
         name: "Leanne Graham",
         email: "Sincere@april.biz",
         address: "Kulas Light,Gwenborough ,92998,England",
@@ -37,6 +39,7 @@ const customers = [
     },
     {
         id: 2,
+        no: 2,
         name: "Leanne Graham",
         email: "Sincere@april.biz",
         address: "Kulas Light,Gwenborough ,92998,England",
@@ -48,6 +51,7 @@ const customers = [
     },
     {
         id: 3,
+        no: 3,
         name: "Leanne Graham",
         email: "Sincere@april.biz",
         address: "Kulas Light,Gwenborough ,92998,England",
@@ -59,6 +63,7 @@ const customers = [
     },
     {
         id: 4,
+        no: 4,
         name: "Leanne Graham",
         email: "Sincere@april.biz",
         address: "Kulas Light,Gwenborough ,92998,England",
@@ -70,6 +75,7 @@ const customers = [
     },
     {
         id: 5,
+        no: 5,
         name: "Leanne Graham",
         email: "Sincere@april.biz",
         address: "Kulas Light,Gwenborough ,92998,England",
@@ -120,6 +126,14 @@ function CustomersTable(props) {
                             .map((row) => {
                                 return (
                                     <TableRow hover role="checkbox" tabIndex={-1} key={row?.id}>
+
+                                        {/* no  */}
+                                        <TableCell>
+                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
+                                                {row?.no}
+                                            </Typography>
+                                        </TableCell>
+                                        
                                         {/* name  */}
                                         <TableCell >
                                             <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#000' }}>

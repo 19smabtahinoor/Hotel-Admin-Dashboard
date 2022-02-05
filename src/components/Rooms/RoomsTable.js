@@ -14,34 +14,29 @@ import * as React from 'react';
 const columns = [
     { id: 'no', label: 'No.', minWidth: 50 },
     { id: 'name', label: 'Hotel Name', minWidth: 100 },
-    { id: 'code', label: 'Hotel Code', minWidth: 150 },
-    { id: 'address', label: 'Hotel Address', minWidth: 150 },
-    { id: 'telephone', label: 'Hotel telephone', minWidth: 150 },
+    { id: 'number', label: 'Room Number', minWidth: 150 },
+    { id: 'telephone', label: 'Room Telephone', minWidth: 150 },
     { id: 'action', label: 'Action', minWidth: 100 },
 ];
 
-const hotels = [
+const rooms = [
     {
         no:1,
-        _id: "61c85c7a7459910b246d77ee",
-        name: "Muslim Kabab",
-        address: "House 10, Road 12 Block F, Niketan, Gulshan 1, Dhaka - 1212, Bangladesh",
+        hotelName: "Muslim Kabab",
         telephone: "013333333333",
-        code: "61c85c7a7459910b246d77ee",
+        roomNumber: "61c85",
 
     },
     {
-        no:2,
-        _id: "61c85c7a7459910b246d77ee",
-        name: "Mostakim Varieties Kabab & Soup",
-        address: "House 10, Road 12 Block F, Niketan, Gulshan 1, Dhaka - 1212, Bangladesh",
-        telephone: "013333333333",
-        code: "61c85c7a7459910b246d77ee",
+        no: 2,
+        hotelName: "Mostakim Varieties Kabab & Soup",
+        telephone: "013435353333",
+        roomNumber: "61246d",
     },
 
 ]
 
-function HotelsTable(props) {
+function RoomsTable(props) {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -66,7 +61,7 @@ function HotelsTable(props) {
                                 <TableCell
                                     key={column.id}
                                     align={column.align}
-                                    style={{ minWidth: column.minWidth ,fontWeight:'bold' }}
+                                    style={{ minWidth: column.minWidth, fontWeight: 'bold' }}
                                 >
                                     {column.label}
                                 </TableCell>
@@ -74,7 +69,7 @@ function HotelsTable(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {hotels
+                        {rooms
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row) => {
                                 return (
@@ -85,35 +80,29 @@ function HotelsTable(props) {
                                                 {row?.no}
                                             </Typography>
                                         </TableCell>
+
                                         {/* name  */}
                                         <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden',color:'#000' }}>
-                                                {row?.name}
+                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
+                                                {row?.hotelName}
                                             </Typography>
                                         </TableCell>
 
-                                        {/* code  */}
+                                        {/* roomNumber  */}
                                         <TableCell>
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden',color:'#5a5c5e'}}>
-                                                {row?.code}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* address  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden',color:'#5a5c5e' }}>
-                                                {row?.address}
+                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#000' }}>
+                                                {row?.roomNumber}
                                             </Typography>
                                         </TableCell>
 
                                         {/* telephone  */}
                                         <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden',color:'#5a5c5e' }}>
+                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
                                                 {row?.telephone}
                                             </Typography>
                                         </TableCell>
 
-                                       
+
 
 
                                         {/* action  */}
@@ -132,7 +121,7 @@ function HotelsTable(props) {
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
-                count={hotels.length}
+                count={rooms.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
@@ -143,4 +132,4 @@ function HotelsTable(props) {
     );
 }
 
-export default HotelsTable;
+export default RoomsTable;

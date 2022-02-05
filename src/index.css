@@ -47,3 +47,7 @@ code {
   background-color: var(--primary);
   box-shadow: none;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}

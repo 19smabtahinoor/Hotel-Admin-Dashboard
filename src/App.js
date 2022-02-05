@@ -7,6 +7,9 @@ import UpdateCustomerPage from './pages/Customers/UpdateCustomerPage';
 import AddHotelPage from './pages/Hotels/AddHotelPage';
 import Hotels from './pages/Hotels/Hotels';
 import UpdateHotelPage from './pages/Hotels/UpdateHotelPage';
+import AddRoomPage from './pages/Rooms/AddRoomPage';
+import Rooms from './pages/Rooms/Rooms';
+import UpdateRoomPage from './pages/Rooms/UpdateRoomPage';
 
 export default function App () {
     return (
@@ -25,6 +28,11 @@ export default function App () {
                     <Route path="customers" element={<Customers />} />
                     <Route path="customers/addCustomer" element={<AddCustomerPage />} />
                     <Route path="customers/updateCustomer" element={<UpdateCustomerPage />} />
+
+                    {/* Rooms  */}
+                    <Route path="rooms" element={<Rooms />} />
+                    <Route path="rooms/addRoom" element={<AddRoomPage />} />
+                    <Route path="rooms/updateRoom" element={<UpdateRoomPage />} />
                 
                 </Route>
             </Routes>
