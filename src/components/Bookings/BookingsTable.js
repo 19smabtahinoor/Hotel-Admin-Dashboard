@@ -13,17 +13,18 @@ import * as React from 'react';
 
 const columns = [
     { id: 'no', label: 'No.', minWidth: 50 },
-    { id: 'name', label: 'Hotel Name', minWidth: 100 },
-    { id: 'number', label: 'Room Number', minWidth: 150 },
-    { id: 'telephone', label: 'Room Telephone', minWidth: 150 },
+    { id: 'Booking Date', label: 'Booking Date', minWidth: 150 },
+    { id: 'start date', label: 'Start Date', minWidth: 150 },
+    { id: 'end date', label: 'End Date', minWidth: 150 },
+    { id: 'Amount', label: 'Amount', minWidth: 150 },
     { id: 'action', label: 'Action', minWidth: 100 },
 ];
 
 
-function RoomsTable(props) {
+function BookingsTable(props) {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    const [roomsData, setRoomsData] = React.useState([])
+    const [bookingData, setBookingData] = React.useState([])
 
 
     const handleChangePage = (event, newPage) => {
@@ -35,12 +36,12 @@ function RoomsTable(props) {
         setPage(0);
     };
 
-
     React.useEffect(() => {
-        fetch('https://61f92889783c1d0017c449b5.mockapi.io/api/v1/rooms')
+        fetch('https://61f92889783c1d0017c449b5.mockapi.io/api/v1/bookings')
             .then(res => res.json())
-            .then(res => setRoomsData(res))
+            .then(res => setBookingData(res))
     }, [])
+
 
     return (
         <Paper sx={{ width: '100%', overflow: 'hidden', boxShadow: 'none', borderRadius: '10px' }}>
@@ -60,11 +61,12 @@ function RoomsTable(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {roomsData
+                        {bookingData
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row) => {
                                 return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={row?._id}>
+                                    <TableRow hover role="checkbox" tabIndex={-1} key={row?.id}>
+
                                         {/* no  */}
                                         <TableCell>
                                             <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
@@ -72,28 +74,33 @@ function RoomsTable(props) {
                                             </Typography>
                                         </TableCell>
 
-                                        {/* name  */}
+                                        {/* bookingDate  */}
                                         <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.hotelName}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* roomNumber  */}
-                                        <TableCell>
                                             <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#000' }}>
-                                                {row?.roomNumber}
+                                                {row?.bookingDate}
                                             </Typography>
                                         </TableCell>
 
-                                        {/* telephone  */}
+                                        {/* startDate  */}
+                                        <TableCell>
+                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
+                                                {row?.startDate}
+                                            </Typography>
+                                        </TableCell>
+
+                                        {/* endDate  */}
                                         <TableCell >
                                             <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.telephone}
+                                                {row?.endDate}
                                             </Typography>
                                         </TableCell>
 
-
+                                        {/* amount  */}
+                                        <TableCell >
+                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
+                                                ${row?.amount}
+                                            </Typography>
+                                        </TableCell>
 
 
                                         {/* action  */}
@@ -112,7 +119,7 @@ function RoomsTable(props) {
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
-                count={roomsData.length}
+                count={bookingData.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
@@ -123,4 +130,4 @@ function RoomsTable(props) {
     );
 }
 
-export default RoomsTable;
+export default BookingsTable;

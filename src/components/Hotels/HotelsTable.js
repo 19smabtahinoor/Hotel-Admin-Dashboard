@@ -20,31 +20,11 @@ const columns = [
     { id: 'action', label: 'Action', minWidth: 100 },
 ];
 
-const hotels = [
-    {
-        no:1,
-        _id: "61c85c7a7459910b246d77ee",
-        name: "Muslim Kabab",
-        address: "House 10, Road 12 Block F, Niketan, Gulshan 1, Dhaka - 1212, Bangladesh",
-        telephone: "013333333333",
-        code: "61c85c7a7459910b246d77ee",
-
-    },
-    {
-        no:2,
-        _id: "61c85c7a7459910b246d77ee",
-        name: "Mostakim Varieties Kabab & Soup",
-        address: "House 10, Road 12 Block F, Niketan, Gulshan 1, Dhaka - 1212, Bangladesh",
-        telephone: "013333333333",
-        code: "61c85c7a7459910b246d77ee",
-    },
-
-]
 
 function HotelsTable(props) {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
+    const [hotelsData,setHotelsData] = React.useState([])
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -55,6 +35,11 @@ function HotelsTable(props) {
         setPage(0);
     };
 
+    React.useEffect(() => {
+        fetch('https://61f92889783c1d0017c449b5.mockapi.io/api/v1/hotels')
+        .then(res => res.json())
+            .then(res => setHotelsData(res))
+    },[])
 
     return (
         <Paper sx={{ width: '100%', overflow: 'hidden', boxShadow: 'none', borderRadius: '10px' }}>
@@ -74,15 +59,15 @@ function HotelsTable(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {hotels
+                        {hotelsData
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row) => {
                                 return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={row?._id}>
-                                        {/* no  */}
+                                    <TableRow hover role="checkbox" tabIndex={-1} key={row?.id}>
+                                        {/* id  */}
                                         <TableCell>
                                             <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.no}
+                                                {row?.id}
                                             </Typography>
                                         </TableCell>
                                         {/* name  */}
@@ -132,7 +117,7 @@ function HotelsTable(props) {
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
-                count={hotels.length}
+                count={hotelsData.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

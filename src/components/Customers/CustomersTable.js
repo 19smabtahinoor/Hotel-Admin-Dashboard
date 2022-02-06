@@ -24,73 +24,11 @@ const columns = [
     { id: 'action', label: 'Action', minWidth: 100 },
 ];
 
-const customers = [
-    {
-        id: 1,
-        no: 1,
-        name: "Leanne Graham",
-        email: "Sincere@april.biz",
-        address: "Kulas Light,Gwenborough ,92998,England",
-        phone: "1-770-736-8031 x56442",
-        country: 'England',
-        city: 'London',
-        postOffice: "London Local",
-        code: "1232"
-    },
-    {
-        id: 2,
-        no: 2,
-        name: "Leanne Graham",
-        email: "Sincere@april.biz",
-        address: "Kulas Light,Gwenborough ,92998,England",
-        phone: "1-770-736-8031 x56442",
-        country: 'England',
-        city: 'London',
-        postOffice: "London Local",
-        code: "1232"
-    },
-    {
-        id: 3,
-        no: 3,
-        name: "Leanne Graham",
-        email: "Sincere@april.biz",
-        address: "Kulas Light,Gwenborough ,92998,England",
-        phone: "1-770-736-8031 x56442",
-        country: 'England',
-        city: 'London',
-        postOffice: "London Local",
-        code: "1232"
-    },
-    {
-        id: 4,
-        no: 4,
-        name: "Leanne Graham",
-        email: "Sincere@april.biz",
-        address: "Kulas Light,Gwenborough ,92998,England",
-        phone: "1-770-736-8031 x56442",
-        country: 'England',
-        city: 'London',
-        postOffice: "London Local",
-        code: "1232"
-    },
-    {
-        id: 5,
-        no: 5,
-        name: "Leanne Graham",
-        email: "Sincere@april.biz",
-        address: "Kulas Light,Gwenborough ,92998,England",
-        phone: "1-770-736-8031 x56442",
-        country: 'England',
-        city: 'London',
-        postOffice: "London Local",
-        code: "1232"
-    }
-
-]
 
 function CustomersTable(props) {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [customersData, setCustomersData] = React.useState([])
 
 
     const handleChangePage = (event, newPage) => {
@@ -102,6 +40,11 @@ function CustomersTable(props) {
         setPage(0);
     };
 
+    React.useEffect(() => {
+        fetch('https://61f92889783c1d0017c449b5.mockapi.io/api/v1/customers')
+            .then(res => res.json())
+            .then(res => setCustomersData(res))
+    }, [])
 
     return (
         <Paper sx={{ width: '100%', overflow: 'hidden', boxShadow: 'none', borderRadius: '10px' }}>
@@ -121,7 +64,7 @@ function CustomersTable(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {customers
+                        {customersData
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row) => {
                                 return (
@@ -130,7 +73,7 @@ function CustomersTable(props) {
                                         {/* no  */}
                                         <TableCell>
                                             <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.no}
+                                                {row?.id}
                                             </Typography>
                                         </TableCell>
                                         
@@ -209,7 +152,7 @@ function CustomersTable(props) {
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
-                count={customers.length}
+                count={customersData.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

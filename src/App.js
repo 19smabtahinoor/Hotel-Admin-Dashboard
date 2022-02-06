@@ -1,6 +1,9 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import Dashboard from './Dashboard';
+import AddBookingPage from './pages/Bookings/AddBookingPage';
+import Bookings from './pages/Bookings/Bookings';
+import UpdateBookingPage from './pages/Bookings/UpdateBookingPage';
 import AddCustomerPage from './pages/Customers/AddCustomerPage';
 import Customers from './pages/Customers/Customers';
 import UpdateCustomerPage from './pages/Customers/UpdateCustomerPage';
@@ -33,6 +36,11 @@ export default function App () {
                     <Route path="rooms" element={<Rooms />} />
                     <Route path="rooms/addRoom" element={<AddRoomPage />} />
                     <Route path="rooms/updateRoom" element={<UpdateRoomPage />} />
+
+                    {/* Bookings  */}
+                    <Route path="bookings" element={<Bookings />} />
+                    <Route path="bookings/addBooking" element={<AddBookingPage />} />
+                    <Route path="bookings/updateBooking" element={<UpdateBookingPage />} />
                 
                 </Route>
             </Routes>

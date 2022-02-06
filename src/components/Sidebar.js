@@ -93,13 +93,13 @@ const menu = [
                 id: '2sub1',
                 title: 'Add Booking',
                 icon: <HolidayVillageIcon />,
-                link: "/bookings/addBookings",
+                link: "/bookings/addBooking",
             },
             {
                 id: '2sub2',
                 title: 'Update Booking',
                 icon: <HolidayVillageIcon />,
-                link: "/bookings/updateBookings",
+                link: "/bookings/updateBooking",
             }
         ]
     },
