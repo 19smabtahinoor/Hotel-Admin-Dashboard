@@ -107,7 +107,7 @@ const menu = [
         id: 5,
         title: 'Customers by Hotel',
         icon: <AssignmentIndIcon />,
-        link: "/customers-by-hotel",
+        link: "/customersPerHotel",
     },
 
 ]

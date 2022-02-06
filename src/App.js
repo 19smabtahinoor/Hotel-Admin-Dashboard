@@ -7,6 +7,7 @@ import UpdateBookingPage from './pages/Bookings/UpdateBookingPage';
 import AddCustomerPage from './pages/Customers/AddCustomerPage';
 import Customers from './pages/Customers/Customers';
 import UpdateCustomerPage from './pages/Customers/UpdateCustomerPage';
+import CustomersByHotel from './pages/CustomersByHotel';
 import AddHotelPage from './pages/Hotels/AddHotelPage';
 import Hotels from './pages/Hotels/Hotels';
 import UpdateHotelPage from './pages/Hotels/UpdateHotelPage';
@@ -41,6 +42,10 @@ export default function App () {
                     <Route path="bookings" element={<Bookings />} />
                     <Route path="bookings/addBooking" element={<AddBookingPage />} />
                     <Route path="bookings/updateBooking" element={<UpdateBookingPage />} />
+
+                    {/* customer per hotel  */}
+                    <Route path="customersPerHotel" element={<CustomersByHotel />} />
+                    
                 
                 </Route>
             </Routes>
