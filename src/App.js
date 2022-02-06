@@ -20,13 +20,16 @@ export default function App () {
         <div>
             <Routes>
                 <Route path="/" element={<Dashboard />} />
+
+                
                 <Route path="/*" element={<Dashboard />} >
                     <Route path="*" element={<Hotels />} />
+                
 
-                    {/* hotels  */}
+                    {/* hotels */}
                     <Route path="hotels" element={<Hotels />} />
                     <Route path="hotels/addHotels" element={<AddHotelPage />} />
-                    <Route path="hotels/updateHotels" element={<UpdateHotelPage />} />
+                    <Route path="hotels/updateHotels" element={<UpdateHotelPage />} /> 
 
                     {/* Customers  */}
                     <Route path="customers" element={<Customers />} />
@@ -45,8 +48,8 @@ export default function App () {
 
                     {/* customer per hotel  */}
                     <Route path="customersPerHotel" element={<CustomersByHotel />} />
-                    
-                
+
+
                 </Route>
             </Routes>
         </div>
