@@ -1,6 +1,3 @@
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import EditIcon from '@mui/icons-material/Edit';
-import { Box, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import * as React from 'react';
+import HotelTableItem from './HotelTableItem';
 
 const columns = [
     { id: 'no', label: 'No.', minWidth: 50 },
@@ -61,56 +59,11 @@ function HotelsTable(props) {
                     <TableBody>
                         {hotelsData
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map((row) => {
-                                return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={row?.id}>
-                                        {/* id  */}
-                                        <TableCell>
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.id}
-                                            </Typography>
-                                        </TableCell>
-                                        {/* name  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden',color:'#000' }}>
-                                                {row?.name}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* code  */}
-                                        <TableCell>
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden',color:'#5a5c5e'}}>
-                                                {row?.code}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* address  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden',color:'#5a5c5e' }}>
-                                                {row?.address}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* telephone  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden',color:'#5a5c5e' }}>
-                                                {row?.telephone}
-                                            </Typography>
-                                        </TableCell>
-
-                                       
-
-
-                                        {/* action  */}
-                                        <TableCell>
-                                            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }} >
-                                                <EditIcon sx={{ marginRight: 1, cursor: 'pointer' }} />
-                                                <DeleteOutlineIcon sx={{ cursor: 'pointer' }} />
-                                            </Box>
-                                        </TableCell>
-                                    </TableRow>
-                                );
-                            })}
+                            .map((row,index) => (
+                                <TableRow hover role="checkbox" tabIndex={-1} key={row?.id}>
+                                    <HotelTableItem row={row} index={index} />
+                                </TableRow>
+                            ))}
                     </TableBody>
                 </Table>
             </TableContainer>

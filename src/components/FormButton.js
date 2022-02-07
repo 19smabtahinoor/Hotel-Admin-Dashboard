@@ -14,8 +14,10 @@ function FormButton({ text }) {
                 boxShadow:'none'
             }
         }}
+        type="submit"
         >
         {text}
+        
         </Button>
     );
 }

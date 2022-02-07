@@ -1,9 +1,12 @@
 import { Box } from '@mui/material';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import UpdateHotelsForm from '../../components/Hotels/UpdateHotelsForm';
 import PageHeading from '../../components/PageHeading';
 
 function UpdateHotelPage(props) {
+    const {id} = useParams();
+    
     return (
         <Box sx={{ padding: '30px 15px' }}>
 
@@ -17,7 +20,7 @@ function UpdateHotelPage(props) {
                 boxSizing: 'borderBox',
                 margin: '30px 0px'
             }}>
-                <UpdateHotelsForm />
+                <UpdateHotelsForm id={id} />
             </Box>
         </Box>
     );

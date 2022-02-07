@@ -30,6 +30,7 @@ export default function App () {
                     <Route path="hotels" element={<Hotels />} />
                     <Route path="hotels/addHotels" element={<AddHotelPage />} />
                     <Route path="hotels/updateHotels" element={<UpdateHotelPage />} /> 
+                    <Route path="hotels/updateHotels/:id" element={<UpdateHotelPage />} /> 
 
                     {/* Customers  */}
                     <Route path="customers" element={<Customers />} />
