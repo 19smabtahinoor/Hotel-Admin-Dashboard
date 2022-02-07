@@ -13,7 +13,7 @@ import * as React from 'react';
 
 const columns = [
     { id: 'no', label: 'No.', minWidth: 50 },
-    { id: 'Booking Date', label: 'Booking Date', minWidth: 150 },
+    { id: 'Reservations Date', label: 'Reservation Date', minWidth: 150 },
     { id: 'start date', label: 'Start Date', minWidth: 150 },
     { id: 'end date', label: 'End Date', minWidth: 150 },
     { id: 'Amount', label: 'Amount', minWidth: 150 },

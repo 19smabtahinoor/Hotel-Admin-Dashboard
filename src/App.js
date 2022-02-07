@@ -42,9 +42,9 @@ export default function App () {
                     <Route path="rooms/updateRoom" element={<UpdateRoomPage />} />
 
                     {/* Bookings  */}
-                    <Route path="bookings" element={<Bookings />} />
-                    <Route path="bookings/addBooking" element={<AddBookingPage />} />
-                    <Route path="bookings/updateBooking" element={<UpdateBookingPage />} />
+                    <Route path="reservations" element={<Bookings />} />
+                    <Route path="reservations/addReservation" element={<AddBookingPage />} />
+                    <Route path="reservations/updateReservation" element={<UpdateBookingPage />} />
 
                     {/* customer per hotel  */}
                     <Route path="customersPerHotel" element={<CustomersByHotel />} />

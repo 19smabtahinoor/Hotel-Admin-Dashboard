@@ -8,7 +8,7 @@ function UpdateBookingPage(props) {
         <Box sx={{ padding: '30px 15px' }}>
 
             {/* page heading  */}
-            <PageHeading text="Update Booking" />
+            <PageHeading text="Update Reservation" />
             {/* form  */}
             <Box sx={{
                 background: '#fff',

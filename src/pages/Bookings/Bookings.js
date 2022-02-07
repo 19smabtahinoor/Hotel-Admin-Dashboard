@@ -7,7 +7,7 @@ function Bookings(props) {
     return (
         <Box sx={{ padding: '30px 15px' }}>
             {/* page heading  */}
-            <PageHeading text="Bookings" />
+            <PageHeading text="Reservations" />
             {/* form  */}
             <Box sx={{
                 background: '#fff',

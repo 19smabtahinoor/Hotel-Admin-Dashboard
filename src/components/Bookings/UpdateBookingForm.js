@@ -39,7 +39,7 @@ function UpdateBookingForm(props) {
 
             {/* buttons  */}
             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'flex-end', height: '100%' }} >
-                <FormButton text="Update Booking" />
+                <FormButton text="Update Reservation" />
             </Box>
         </form>
     );

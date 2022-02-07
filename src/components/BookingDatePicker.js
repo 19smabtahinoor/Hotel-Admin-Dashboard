@@ -11,14 +11,14 @@ export default function BookingDatePicker() {
 
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <Typography sx={{ marginBottom: 2 }}>Booking Date</Typography>
+            <Typography sx={{ marginBottom: 2 }}>Reservation Date</Typography>
 
             <DatePicker
                 value={value}
                 onChange={(newValue) => {
                     setValue(newValue);
                 }}
-                renderInput={(params) => <TextField {...params} sx={{ width: "100%" }} color="success" placeholder="Booking Date" />}
+                renderInput={(params) => <TextField {...params} sx={{ width: "100%" }} color="success" placeholder="Reservation Date" />}
             />
         </LocalizationProvider>
     );

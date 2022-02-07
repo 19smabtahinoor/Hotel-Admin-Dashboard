@@ -39,7 +39,7 @@ function AddBookingForm(props) {
 
             {/* buttons  */}
             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'flex-end', height: '100%' }} >
-                <FormButton text="Add Booking" />
+                <FormButton text="Add Reservation" />
             </Box>
         </form>
     );

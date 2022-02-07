@@ -11,7 +11,7 @@ export default function BookingDateRangePicker() {
 
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <Typography sx={{ marginBottom: 2 }}>Booking Start Date to End Date</Typography>
+            <Typography sx={{ marginBottom: 2 }}>Reservation Start Date to End Date</Typography>
 
             <DateRangePicker
                 value={value}

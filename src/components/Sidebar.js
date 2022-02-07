@@ -85,21 +85,21 @@ const menu = [
     {
         id: 2,
         title:
-            'Bookings',
+            'Reservations',
         icon: <BookOnlineIcon />,
-        link: "/bookings",
+        link: "/reservations",
         subMenu: [
             {
                 id: '2sub1',
-                title: 'Add Booking',
+                title: 'Add Reservation',
                 icon: <HolidayVillageIcon />,
-                link: "/bookings/addBooking",
+                link: "/reservations/addReservation",
             },
             {
                 id: '2sub2',
-                title: 'Update Booking',
+                title: 'Update Reservation',
                 icon: <HolidayVillageIcon />,
-                link: "/bookings/updateBooking",
+                link: "/reservations/updateReservation",
             }
         ]
     },
