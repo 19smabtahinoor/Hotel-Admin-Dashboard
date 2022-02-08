@@ -6,17 +6,17 @@ import TextField from '@mui/material/TextField';
 import * as React from 'react';
 
 
-export default function BookingDatePicker() {
-    const [value, setValue] = React.useState(null);
+export default function BookingDatePicker({ currentDate, setCurrentDate}) {
+   
 
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
             <Typography sx={{ marginBottom: 2 }}>Reservation Date</Typography>
 
             <DatePicker
-                value={value}
+                value={currentDate}
                 onChange={(newValue) => {
-                    setValue(newValue);
+                    setCurrentDate(newValue);
                 }}
                 renderInput={(params) => <TextField {...params} sx={{ width: "100%" }} color="success" placeholder="Reservation Date" />}
             />

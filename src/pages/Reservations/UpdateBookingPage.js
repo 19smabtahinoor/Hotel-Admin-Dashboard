@@ -1,13 +1,19 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import BookingsTable from '../../components/Bookings/BookingsTable';
+import { useParams } from 'react-router-dom';
+// import UpdateBookingForm from '../../components/Reservations/UpdateBookingForm';
 import PageHeading from '../../components/PageHeading';
+import UpdateBookingForm from '../../components/Reservations/UpdateBookingForm';
 
-function Bookings(props) {
+
+function UpdateBookingPage(props) {
+    const { id } = useParams();
+
     return (
         <Box sx={{ padding: '30px 15px' }}>
+
             {/* page heading  */}
-            <PageHeading text="Reservations" />
+            <PageHeading text="Update Reservation" />
             {/* form  */}
             <Box sx={{
                 background: '#fff',
@@ -16,10 +22,10 @@ function Bookings(props) {
                 boxSizing: 'borderBox',
                 margin: '30px 0px'
             }}>
-                <BookingsTable />
+                <UpdateBookingForm id={id} />
             </Box>
         </Box>
     );
 }
 
-export default Bookings;
+export default UpdateBookingPage;

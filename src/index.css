@@ -21,6 +21,9 @@ code {
   text-decoration: none;
 }
 
+* {
+  font-size: 14px;
+}
 .active-nav {
   /* background: #27895d; */
   color: var(--primary);

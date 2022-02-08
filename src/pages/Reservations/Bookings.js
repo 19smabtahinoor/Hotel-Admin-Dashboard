@@ -1,14 +1,13 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import UpdateBookingForm from '../../components/Bookings/UpdateBookingForm';
 import PageHeading from '../../components/PageHeading';
+import BookingsTable from '../../components/Reservations/BookingsTable';
 
-function UpdateBookingPage(props) {
+function Bookings(props) {
     return (
         <Box sx={{ padding: '30px 15px' }}>
-
             {/* page heading  */}
-            <PageHeading text="Update Reservation" />
+            <PageHeading text="Reservations" />
             {/* form  */}
             <Box sx={{
                 background: '#fff',
@@ -17,10 +16,10 @@ function UpdateBookingPage(props) {
                 boxSizing: 'borderBox',
                 margin: '30px 0px'
             }}>
-                <UpdateBookingForm />
+                <BookingsTable />
             </Box>
         </Box>
     );
 }
 
-export default UpdateBookingPage;
+export default Bookings;

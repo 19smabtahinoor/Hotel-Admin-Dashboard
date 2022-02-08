@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import AddBookingForm from '../../components/Bookings/AddBookingForm';
 import PageHeading from '../../components/PageHeading';
+import AddBookingForm from '../../components/Reservations/AddBookingForm';
 
 function AddBookingPage(props) {
     return (

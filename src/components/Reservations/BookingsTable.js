@@ -1,6 +1,3 @@
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import EditIcon from '@mui/icons-material/Edit';
-import { Box, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import * as React from 'react';
+import BookingTableItem from './BookingTableItem';
 
 const columns = [
     { id: 'no', label: 'No.', minWidth: 50 },
@@ -63,53 +61,11 @@ function BookingsTable(props) {
                     <TableBody>
                         {bookingData
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map((row) => {
+                            .map((row, index) => {
                                 return (
                                     <TableRow hover role="checkbox" tabIndex={-1} key={row?.id}>
 
-                                        {/* no  */}
-                                        <TableCell>
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.id}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* bookingDate  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#000' }}>
-                                                {row?.bookingDate}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* startDate  */}
-                                        <TableCell>
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.startDate}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* endDate  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.endDate}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* amount  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                ${row?.amount}
-                                            </Typography>
-                                        </TableCell>
-
-
-                                        {/* action  */}
-                                        <TableCell>
-                                            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }} >
-                                                <EditIcon sx={{ marginRight: 1, cursor: 'pointer' }} />
-                                                <DeleteOutlineIcon sx={{ cursor: 'pointer' }} />
-                                            </Box>
-                                        </TableCell>
+                                        <BookingTableItem row={row} index={index} />
                                     </TableRow>
                                 );
                             })}

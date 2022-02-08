@@ -6,8 +6,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import * as React from 'react';
 
-export default function BookingDateRangePicker() {
-    const [value, setValue] = React.useState([null, null]);
+export default function BookingDateRangePicker({ value, setValue}) {
 
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
