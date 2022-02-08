@@ -41,6 +41,7 @@ export default function App () {
                     <Route path="rooms" element={<Rooms />} />
                     <Route path="rooms/addRoom" element={<AddRoomPage />} />
                     <Route path="rooms/updateRoom" element={<UpdateRoomPage />} />
+                    <Route path="rooms/updateRoom/:id" element={<UpdateRoomPage />} /> 
 
                     {/* Bookings  */}
                     <Route path="reservations" element={<Bookings />} />

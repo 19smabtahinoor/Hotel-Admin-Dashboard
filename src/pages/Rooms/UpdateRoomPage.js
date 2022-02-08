@@ -1,9 +1,12 @@
 import { Box } from '@mui/material';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import PageHeading from '../../components/PageHeading';
 import UpdateRoomForm from '../../components/Rooms/UpdateRoomForm';
 
-function UpdateRoomPage(props) {
+function UpdateRoomPage() {
+    const { id } = useParams();
+
     return (
         <Box sx={{ padding: '30px 15px' }}>
 
@@ -17,7 +20,7 @@ function UpdateRoomPage(props) {
                 boxSizing: 'borderBox',
                 margin: '30px 0px'
             }}>
-                <UpdateRoomForm />
+                <UpdateRoomForm id={id} />
             </Box>
         </Box>
     );
