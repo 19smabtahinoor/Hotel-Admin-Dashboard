@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import UpdateHotelsForm from '../../components/Hotels/UpdateHotelsForm';
 import PageHeading from '../../components/PageHeading';
 
-function UpdateHotelPage(props) {
+function UpdateHotelPage() {
     const {id} = useParams();
     
     return (

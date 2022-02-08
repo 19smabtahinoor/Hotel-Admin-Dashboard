@@ -4,8 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import React from 'react';
 
-function CountrySelect(props) {
-    const [country, setCountry] = React.useState('');
+function CountrySelect({ country, setCountry}) {
 
     const handleChange = (event) => {
         setCountry(event.target.value);

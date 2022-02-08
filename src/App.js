@@ -36,6 +36,7 @@ export default function App () {
                     <Route path="customers" element={<Customers />} />
                     <Route path="customers/addCustomer" element={<AddCustomerPage />} />
                     <Route path="customers/updateCustomer" element={<UpdateCustomerPage />} />
+                    <Route path="customers/updateCustomer/:id" element={<UpdateCustomerPage />} />
 
                     {/* Rooms  */}
                     <Route path="rooms" element={<Rooms />} />

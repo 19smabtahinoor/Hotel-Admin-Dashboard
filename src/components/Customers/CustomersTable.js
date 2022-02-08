@@ -1,6 +1,3 @@
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import EditIcon from '@mui/icons-material/Edit';
-import { Box, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import * as React from 'react';
+import CustomerTableItem from './CustomerTableItem';
 
 const columns = [
     { id: 'no', label: 'No.', minWidth: 50 },
@@ -66,83 +64,10 @@ function CustomersTable(props) {
                     <TableBody>
                         {customersData
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map((row) => {
+                            .map((row,index) => {
                                 return (
                                     <TableRow hover role="checkbox" tabIndex={-1} key={row?.id}>
-
-                                        {/* no  */}
-                                        <TableCell>
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.id}
-                                            </Typography>
-                                        </TableCell>
-                                        
-                                        {/* name  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#000' }}>
-                                                {row?.name}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* email  */}
-                                        <TableCell>
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.email}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* address  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.address}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* phone  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.phone}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* country  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.country}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* city  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.city}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* postOffice  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.postOffice}
-                                            </Typography>
-                                        </TableCell>
-
-                                        {/* code  */}
-                                        <TableCell >
-                                            <Typography variant="subtitle1" gutterBottom component="div" sx={{ overflow: 'hidden', color: '#5a5c5e' }}>
-                                                {row?.code}
-                                            </Typography>
-                                        </TableCell>
-
-
-
-
-                                        {/* action  */}
-                                        <TableCell>
-                                            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }} >
-                                                <EditIcon sx={{ marginRight: 1, cursor: 'pointer' }} />
-                                                <DeleteOutlineIcon sx={{ cursor: 'pointer' }} />
-                                            </Box>
-                                        </TableCell>
+                                        <CustomerTableItem row={row} index={index} />
                                     </TableRow>
                                 );
                             })}

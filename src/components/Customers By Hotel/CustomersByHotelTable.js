@@ -13,8 +13,8 @@ import * as React from 'react';
 
 const columns = [
     { id: 'no', label: 'No.', minWidth: 50 },
-    { id: 'name', label: 'Hotel Name', minWidth: 100 },
-    { id: 'customer', label: 'Total Customers', minWidth: 150 },
+    { id: 'name', label: 'Hotel Name', minWidth: 250 },
+    { id: 'customer', label: 'Total Customers', minWidth: 250 },
     { id: 'action', label: 'Action', minWidth: 100 },
 ];
 

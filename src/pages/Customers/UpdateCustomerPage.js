@@ -1,9 +1,12 @@
 import { Box } from '@mui/material';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import UpdateCustomerForm from '../../components/Customers/UpdateCustomerForm';
 import PageHeading from '../../components/PageHeading';
 
-function UpdateCustomerPage(props) {
+function UpdateCustomerPage() {
+    const { id } = useParams();
+
     return (
         <Box sx={{ padding: '30px 15px' }}>
 
@@ -17,7 +20,7 @@ function UpdateCustomerPage(props) {
                 boxSizing: 'borderBox',
                 margin: '30px 0px'
             }}>
-                <UpdateCustomerForm />
+                <UpdateCustomerForm id={id} />
             </Box>
         </Box>
     );
