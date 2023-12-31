@@ -2,7 +2,6 @@ import { FormControl, TextField, Typography } from '@mui/material';
 import React from 'react';
 
 function InputField({ label,...rest}) {
-    // console.log({...rest})
     return (
         <div>
             <FormControl variant="filled" sx={{ width: '100%' }}>

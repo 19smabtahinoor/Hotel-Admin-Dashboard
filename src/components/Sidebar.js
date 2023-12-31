@@ -1,21 +1,17 @@
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import BookOnlineIcon from '@mui/icons-material/BookOnline';
-import GroupIcon from '@mui/icons-material/Group';
-import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import MenuIcon from '@mui/icons-material/Menu';
-import RoofingIcon from '@mui/icons-material/Roofing';
-import { Avatar, List } from '@mui/material';
+import { List } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import MuiDrawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import { styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
 import * as React from 'react';
+import { ImBlog } from "react-icons/im";
 import { Outlet } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 import SideBarMenu from './SideBarMenu';
 
 const drawerWidth = 250;
@@ -24,91 +20,24 @@ const drawerWidth = 250;
 const menu = [
     {
         id: 1,
-        title: 'Hotels',
-        icon: <HolidayVillageIcon />,
-        link: "/hotels",
-        subMenu: [
-            {
-                id: '1sub1',
-                title: 'Add Hotel',
-                icon: <HolidayVillageIcon />,
-                link: "/hotels/addHotels",
-            },
-            {
-                id: '1sub2',
-                title: 'Update Hotel',
-                icon: <HolidayVillageIcon />,
-                link: "/hotels/updateHotels",
-            }
-        ]
-    },
-    {
-        id: 4,
-        title: 'Customers',
-        icon: <GroupIcon />,
-        link: "/customers",
-        subMenu: [
-            {
-                id: '4sub1',
-                title: 'Add Customer',
-                icon: <HolidayVillageIcon />,
-                link: "/customers/addCustomer",
-            },
-            {
-                id: '4sub2',
-                title: 'Update Customer',
-                icon: <HolidayVillageIcon />,
-                link: "/customers/updateCustomer",
-            }
-        ]
-    },
-    {
-        id: 3,
-        title: 'Rooms',
-        icon: <RoofingIcon />,
-        link: "/rooms",
-        subMenu: [
-            {
-                id: '3sub1',
-                title: 'Add Room',
-                icon: <HolidayVillageIcon />,
-                link: "/rooms/addRoom",
-            },
-            {
-                id: '3sub2',
-                title: 'Update Room',
-                icon: <HolidayVillageIcon />,
-                link: "/rooms/updateRoom",
-            }
-        ]
-    },
-    {
-        id: 2,
-        title:
-            'Reservations',
-        icon: <BookOnlineIcon />,
-        link: "/reservations",
-        subMenu: [
-            {
-                id: '2sub1',
-                title: 'Add Reservation',
-                icon: <HolidayVillageIcon />,
-                link: "/reservations/addReservation",
-            },
-            {
-                id: '2sub2',
-                title: 'Update Reservation',
-                icon: <HolidayVillageIcon />,
-                link: "/reservations/updateReservation",
-            }
-        ]
-    },
-    {
-        id: 5,
-        title: 'Customers by Hotel',
-        icon: <AssignmentIndIcon />,
-        link: "/customersPerHotel",
-    },
+        title: 'All Blogs',
+        icon: <ImBlog />,
+        link: "/blogs",
+        // subMenu: [
+        //     {
+        //         id: '1sub1',
+        //         title: 'Add Blog',
+        //         icon: <HolidayVillageIcon />,
+        //         link: "/blogs/addblog",
+        //     },
+        //     {
+        //         id: '1sub2',
+        //         title: 'Update Blog',
+        //         icon: <HolidayVillageIcon />,
+        //         link: "/blogs/updateblog",
+        //     }
+        // ]
+    }
 
 ]
 
@@ -181,6 +110,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function Sidebar() {
     // const theme = useTheme();
     const [open, setOpen] = React.useState(true);
+    const { user, signOutUser } = useAuth();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -212,9 +142,15 @@ export default function Sidebar() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div" sx={{ color: '#000' }}>
-                        Logo
-                    </Typography>
+                  
+                        <div className='flex flex-row items-center justify-between w-full'>
+                            <div className='flex items-center justify-between space-x-3'>
+                                <img src="../../logo.jpg" width="70px" height="70px" alt="logo" />
+                                <h1 className='text-3xl font-bold text-black'>Dashboard</h1>
+                            </div>
+                            <p className='text-white bg-green-700 w-24 rounded-full text-base py-2 text-center font-semibold cursor-pointer hover:bg-green-800 transition duration-200' onClick={() => signOutUser()}>Logout</p>
+                        </div>
+                  
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open} >
@@ -228,11 +164,24 @@ export default function Sidebar() {
                 <Divider />
 
                 {/* user info  */}
-                <Box sx={{ display: 'flex', alignItems: 'center', padding: 2 }}>
-                    <Avatar alt="Remy Sharp" src="https://www.topbeautymagazines.com/wp-content/uploads/2020/06/Hairstyles-For-Square-Faces-Women-5.jpg" />
-                    <Typography sx={{ marginLeft: 2 }}>Remy Sharp</Typography>
-                </Box>
+                <div className='flex flex-col items-center justify-center py-8'>
+                    <div className='flex flex-row justify-center items-center relative'>
+                        <div className='w-24 h-24  rounded-full'>
+                            <img src={user?.photoURL} className='w-full h-full rounded-full' alt={user?.displayName} />
+                        </div>
+                        <div className='absolute -mt-16 ml-24' >
+                            <div className='bg-green-200 border border-green-600 rounded-full w-20 py-1'>
+                                <span className='flex items-center justify-center text-green-800 font-semibold'> Admin</span>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div className='flex flex-col items-center justify-center pt-2'>
+                        <h2 className='font-bold text-xl'>{user?.displayName}</h2>
+                        <p className='text-gray-600 text-sm'>{user?.email}</p>
+
+                    </div>
+                </div>
                 <Divider />
                 {/* menus  */}
                 <List>
